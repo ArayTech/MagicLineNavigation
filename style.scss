@@ -1,0 +1,256 @@
+@import "bourbon/bourbon";
+
+*{
+	margin:0;
+	padding:0;
+}
+
+html,body{
+	transition:all 300ms ease;
+}
+
+nav{
+	width:90%;
+	height:auto;
+	background:teal;
+	position: fixed;
+	top: 0;
+	left: 0;
+	float:left;
+	padding:0 5%;
+	box-shadow:0 2px 5px #333;
+	display:flex;
+	align-items:center;
+	-webkit-flex-direction: rows;
+	    -ms-flex-direction: rows;
+	        flex-direction: rows;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-align-items: center;
+	        align-items: center;
+	.brand{
+		font-family:cabin sketch;
+		font-size:1.8em;
+		a{
+			color:white;
+			text-shadow:3px 3px #333;
+			text-decoration:none;
+		}
+	}
+	ul{
+		list-style:none;
+		display:flex;
+		flex-direction:rows;
+		justify-content:flex-end;
+		position:relative;
+		li{
+			float:left;
+			display:inline-block;
+			a{
+				color:white;
+				text-decoration:none;
+				padding:20px 25px;
+				font-family:ubuntu;
+				font-size:1.2em;
+				display:block;
+				z-index:11;
+				text-transform:capitalize;
+			}
+			&:not(#magicline){
+				z-index:11;
+			}
+			&.active{
+				z-index:11;
+			}
+			&#magicline{
+				position:absolute;
+				height:3px;
+				bottom:0;
+				margin-bottom:-2px;
+				// background:darken(teal, 5%);
+				background: #FFF;
+				transition: all 300ms ease-in-out;
+				z-index: 1;
+			}
+		}
+	}
+}
+
+header{
+	width:100%;
+	height:100vh;
+	display:flex;
+	align-items:center;
+	font-family:cabin sketch;
+	position: relative;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	overflow:hidden;
+	z-index: -1;
+	h1{
+		font-size:4.5em;
+		color:#fff;
+		@include filter(drop-shadow(3px 3px #333));
+		transition: all 300ms ease-in-out;
+		position: relative;
+		padding: 15px;
+		&:before,&:after{
+			content:"";
+			position: absolute;
+			bottom: 0;
+			width: 15%;
+			height:5px;
+			background:#fff;
+		}
+		&:before{
+			left:50%;
+			@include border-right-radius(10px);
+		}
+		&:after{
+			right:50%;
+			@include border-left-radius(10px);
+		}
+	}
+	.go{
+		position: absolute;
+		bottom:10%;
+		z-index: 100;
+		a{
+			color:white;
+			font-size:2.5em;
+			display:block;
+		}
+	}
+	.bg,.warnabg-kiri,.bg,.warnabg-kanan{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		z-index : -1;
+	}
+	.bg{
+		background:url('bg.jpg') center center no-repeat;
+		background-size:cover;
+		z-index: -5;
+	}
+	.warnabg-kiri,.warnabg-kanan{
+		width:0%;
+		z-index : -2;
+		height:100vh;
+		position: absolute;
+		transition: all 300ms ease-in-out;
+		&.active{
+			opacity:0.3;
+			width:50%;
+		}
+	}
+	.warnabg-kiri{
+		left:50%;
+	}
+	.warnabg-kanan{
+		right:50%;
+	}
+}
+
+#warna{
+	position:fixed;
+	top:80px;
+	right:0;
+	width:auto;
+	height:auto;
+	padding:10px 0 10px 10px;
+	background: lighten(#ccc, 10%);
+	box-shadow : 0 0 5px #efefef;
+	@include border-left-radius(6px);
+	@include transition(all 300ms ease);
+	ul{
+		list-style: none;
+		float:left;
+		position: relative;
+		display:flex;
+		align-items:center;
+		@include transition(all 300ms ease);
+		li{
+			float:left;
+			@include transition(all 300ms ease);
+			span{
+				width: 50px;
+				height: 50px;
+				display: block;
+				margin:5px;
+				border-radius:5px;
+				@include transition(all 300ms ease);
+				position: relative;
+				overflow:hidden;
+				&:hover{
+					cursor: pointer;
+					&:before{
+						// opacity:1;
+						@include transform(translateX(0%));
+					}
+				}
+				&:before{
+					position: absolute;
+					bottom: 0;
+					content:"";
+					width: 200%;
+					height: 200%;
+					// opacity:0;
+					@include transition(all 300ms ease);
+					@include transform(skew(-45deg) translateX(-100%));
+					background:rgba(255,255,255,0.2);
+					
+				}
+				&.active{
+					width:0;
+					margin:5px 0;
+				}
+			}
+		}
+		#hideshow{
+			position: relative;
+			top:0;
+			right:0;
+			width:10px;
+			background:#ccc;
+			padding:10px;
+			margin-left:10px;
+			@include border-left-radius(6px);
+			@include transform(rotate(0deg));
+			&:hover{
+				cursor: pointer;
+			}
+			i{
+				@include transition(all 300ms ease);
+			}
+			& .active{
+				@include transform(rotate(180deg));
+			}
+		}
+	}
+}
+
+section {
+	width: 80%;
+	height: 100vh;
+	padding: 0 10%;
+	display:flex;
+	align-items:center;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-justify-content: center;
+	        justify-content: center;
+	font-family:ubuntu;
+	p{
+		-webkit-column-gap: 2px;
+		-moz-column-gap: 2px;
+		column-gap: 20px;
+		column-count: 2;
+		text-align:justify;
+	}
+}

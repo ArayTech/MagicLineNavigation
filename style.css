@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  transition: all 300ms ease; }
+
+nav {
+  width: 90%;
+  height: auto;
+  background: teal;
+  position: fixed;
+  top: 0;
+  left: 0;
+  float: left;
+  padding: 0 5%;
+  box-shadow: 0 2px 5px #333;
+  display: flex;
+  align-items: center;
+  -webkit-flex-direction: rows;
+  -ms-flex-direction: rows;
+  flex-direction: rows;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  align-items: center; }
+  nav .brand {
+    font-family: cabin sketch;
+    font-size: 1.8em; }
+    nav .brand a {
+      color: white;
+      text-shadow: 3px 3px #333;
+      text-decoration: none; }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: rows;
+    justify-content: flex-end;
+    position: relative; }
+    nav ul li {
+      float: left;
+      display: inline-block; }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 20px 25px;
+        font-family: ubuntu;
+        font-size: 1.2em;
+        display: block;
+        z-index: 11;
+        text-transform: capitalize; }
+      nav ul li:not(#magicline) {
+        z-index: 11; }
+      nav ul li.active {
+        z-index: 11; }
+      nav ul li#magicline {
+        position: absolute;
+        height: 3px;
+        bottom: 0;
+        margin-bottom: -2px;
+        background: #FFF;
+        transition: all 300ms ease-in-out;
+        z-index: 1; }
+
+header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  font-family: cabin sketch;
+  position: relative;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: -1; }
+  header h1 {
+    font-size: 4.5em;
+    color: #fff;
+    -webkit-filter: drop-shadow(3px 3px #333);
+    filter: drop-shadow(3px 3px #333);
+    transition: all 300ms ease-in-out;
+    position: relative;
+    padding: 15px; }
+    header h1:before, header h1:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 15%;
+      height: 5px;
+      background: #fff; }
+    header h1:before {
+      left: 50%;
+      border-bottom-right-radius: 10px;
+      border-top-right-radius: 10px; }
+    header h1:after {
+      right: 50%;
+      border-bottom-left-radius: 10px;
+      border-top-left-radius: 10px; }
+  header .go {
+    position: absolute;
+    bottom: 10%;
+    z-index: 100; }
+    header .go a {
+      color: white;
+      font-size: 2.5em;
+      display: block; }
+  header .bg, header .warnabg-kiri, header .bg, header .warnabg-kanan {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; }
+  header .bg {
+    background: url("bg.jpg") center center no-repeat;
+    background-size: cover;
+    z-index: -5; }
+  header .warnabg-kiri, header .warnabg-kanan {
+    width: 0%;
+    z-index: -2;
+    height: 100vh;
+    position: absolute;
+    transition: all 300ms ease-in-out; }
+    header .warnabg-kiri.active, header .warnabg-kanan.active {
+      opacity: 0.3;
+      width: 50%; }
+  header .warnabg-kiri {
+    left: 50%; }
+  header .warnabg-kanan {
+    right: 50%; }
+
+#warna {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  width: auto;
+  height: auto;
+  padding: 10px 0 10px 10px;
+  background: #e6e6e6;
+  box-shadow: 0 0 5px #efefef;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  transition: all 300ms ease; }
+  #warna ul {
+    list-style: none;
+    float: left;
+    position: relative;
+    display: flex;
+    align-items: center;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    transition: all 300ms ease; }
+    #warna ul li {
+      float: left;
+      -webkit-transition: all 300ms ease;
+      -moz-transition: all 300ms ease;
+      transition: all 300ms ease; }
+      #warna ul li span {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin: 5px;
+        border-radius: 5px;
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        transition: all 300ms ease;
+        position: relative;
+        overflow: hidden; }
+        #warna ul li span:hover {
+          cursor: pointer; }
+          #warna ul li span:hover:before {
+            -webkit-transform: translateX(0%);
+            -moz-transform: translateX(0%);
+            -ms-transform: translateX(0%);
+            -o-transform: translateX(0%);
+            transform: translateX(0%); }
+        #warna ul li span:before {
+          position: absolute;
+          bottom: 0;
+          content: "";
+          width: 200%;
+          height: 200%;
+          -webkit-transition: all 300ms ease;
+          -moz-transition: all 300ms ease;
+          transition: all 300ms ease;
+          -webkit-transform: skew(-45deg) translateX(-100%);
+          -moz-transform: skew(-45deg) translateX(-100%);
+          -ms-transform: skew(-45deg) translateX(-100%);
+          -o-transform: skew(-45deg) translateX(-100%);
+          transform: skew(-45deg) translateX(-100%);
+          background: rgba(255, 255, 255, 0.2); }
+        #warna ul li span.active {
+          width: 0;
+          margin: 5px 0; }
+    #warna ul #hideshow {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 10px;
+      background: #ccc;
+      padding: 10px;
+      margin-left: 10px;
+      border-bottom-left-radius: 6px;
+      border-top-left-radius: 6px;
+      -webkit-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg); }
+      #warna ul #hideshow:hover {
+        cursor: pointer; }
+      #warna ul #hideshow i {
+        -webkit-transition: all 300ms ease;
+        -moz-transition: all 300ms ease;
+        transition: all 300ms ease; }
+      #warna ul #hideshow .active {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        transform: rotate(180deg); }
+
+section {
+  width: 80%;
+  height: 100vh;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  justify-content: center;
+  font-family: ubuntu; }
+  section p {
+    -webkit-column-gap: 2px;
+    -moz-column-gap: 2px;
+    column-gap: 20px;
+    column-count: 2;
+    text-align: justify; }
+
+/*# sourceMappingURL=style.css.map */
